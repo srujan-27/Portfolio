@@ -28,10 +28,17 @@ app.use('/experience', experienceRoutes);
 app.use('/acheivement',AcheivementRoutes);
 
 
-mongoose.connect(process.env.MONGO_URI)
-.then(() => console.log("MongoDB Connected Successfully!"))
-.catch((err) => console.log("MongoDB Connection Error:", err));
+const mongoURI = process.env.MONGO_URI;
 
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 10000
+})
+.then(() => console.log('MongoDB connected successfully'))
+.catch(err => {
+  console.error('MongoDB connection error:', err);
+});
 
 app.get('/', (req, res) => {
     res.send('API Running');
