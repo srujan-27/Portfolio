@@ -1,0 +1,102 @@
+.page {
+    color: white;
+    margin-left: 200px;
+    margin-right: 200px;
+    background-color: black;
+}
+
+.videoContainer {
+    background-color: black;
+    height: 100vh;
+}
+
+.video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.posterSection {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to bottom, darkred, black);
+}
+
+
+.posterContent h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.tagline {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 0px;
+    font-size: 1rem;
+    max-width: 600px;
+}
+
+.about{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    margin-top: 10px;  
+}
+
+.match{
+    color: rgb(34 197 94 );;
+    /* font-size: 20px; */
+    font-weight: bold;
+}
+
+.buttons{
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.watchButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: none;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.share{
+    width:15px;
+}
+
+.watchButton:hover {
+    background-color: rgb(228, 228, 231);
+}
+
+.experiencesSection {
+    padding: 40px 20px;
+}
+
+.second{
+    margin: 10px;
+}
+
+span{
+    color: rgb(167, 167, 174);
+}
+
+
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}

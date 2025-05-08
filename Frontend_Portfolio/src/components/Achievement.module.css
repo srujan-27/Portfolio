@@ -1,0 +1,42 @@
+.container {
+    padding: 20px;
+    background-color: aliceblue;
+  }
+  
+  .heading {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .company {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  img{
+    width: 300px;
+    height: 250px;
+  }
+  
+  .role {
+    font-size: 20px;
+    color: gray;
+  }
+  
+  .location, .duration, .technologies {
+    margin-top: 10px;
+  }
+  
+  .description {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+  
