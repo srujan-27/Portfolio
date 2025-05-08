@@ -6,7 +6,7 @@ const Achievement =()=>{
     const [achievements, setAchievements]=useState([]);
     const fetchAchievements = async () =>{
         try{
-            const response= await axios.get('http://localhost:5000/acheivement');
+            const response= await axios.get('https://portfolio-production-bc43.up.railway.app/acheivement');
             setAchievements(response.data);
         }catch(error){
             console.error("error fetching achivements");
