@@ -16,7 +16,7 @@ const cors = require('cors');
 
 require('dotenv').config();
 
-const experienceRoutes = require('./routes/experienceRoute');
+const experienceRoutes = require('./routes/ExperienceRoute');
 const AcheivementRoutes = require('./routes/AcheivementRoute')
 
 app.use(cors());
