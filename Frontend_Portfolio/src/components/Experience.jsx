@@ -26,13 +26,26 @@ const Experience = () => {
     fetchExperiences();
   }, []);
 
+
+
   if (experiences.length === 0) {
     return <p className={styles.loading}>Loading experiences...</p>;
   }
 
+  const sortedExperiences = () => {
+  // Create a copy before sorting (to avoid mutating state)
+  return [...experiences].sort((a, b) => {
+    // Parse dates and sort by start date (newest first)
+    return new Date(b.startDate) - new Date(a.startDate);
+    
+    // OR if you want oldest first:
+    // return new Date(a.startDate) - new Date(b.startDate);
+  });
+};
+
   return (
     <div className={styles.container}>
-      {experiences.map((exp) => (
+      {sortedExperiences().map((exp) => (
         <div key={exp._id} className={styles.seasonCard}>
           <h2 className={styles.seasonTitle}>Season: {exp.company}</h2>
           <p className={styles.seasonDescription}>
