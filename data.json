@@ -1,0 +1,18 @@
+[
+    {
+    "title": "Portfolio",
+    "video": "/projectImages/portfolio.png",
+  "techStack": ["React.js", "Node.js", "MongoDB", "Express"],
+  "description": "Srujan's portfolio to showcase professional experience and projects.",
+  "demoLink": "https://portfolio-srujan27s-projects.vercel.app/",
+  "codeLink": "https://github.com/srujan-27/Portfolio"
+    },
+    {
+        "title":"Movie-Sugesstion-Website",
+        "Vidoe":"/",
+        "techStack":["JavaScript","HTML","CSS","API"],
+        "description":"Built a dynamic movie recommendation site where users can log in, browse by genre, and add movies to a personal watchlist. Integrated IMDb API for real-time data and used PHP for backend logic and watchlist management.",
+        "demolink":"https://srujan-27.github.io/Movie-Sugesstion-Website",
+        "codelink":"https://github.com/srujan-27/Movie-suggestion-website-U"
+    }
+]

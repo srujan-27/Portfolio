@@ -33,13 +33,12 @@ const Experience = () => {
   }
 
   const sortedExperiences = () => {
-  // Create a copy before sorting (to avoid mutating state)
+
   return [...experiences].sort((a, b) => {
-    // Parse dates and sort by start date (newest first)
+ 
     return new Date(b.startDate) - new Date(a.startDate);
     
-    // OR if you want oldest first:
-    // return new Date(a.startDate) - new Date(b.startDate);
+    
   });
 };
 

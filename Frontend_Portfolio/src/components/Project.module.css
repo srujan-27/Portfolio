@@ -1,0 +1,58 @@
+.body{
+ 
+    background-color: azure;
+}
+.logo {
+  
+ 
+  width: 50px;
+  height: auto;
+}
+
+
+.main{
+    margin: 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+    color: aqua;
+}
+
+.main h1{
+    color: blue;
+}
+
+.projectItem{
+
+  width: 400px;
+  height: 350px;
+}
+
+.projectItem:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
+}
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.projectItem:hover {
+  transform: scale(1.02);
+}

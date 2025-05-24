@@ -17,15 +17,16 @@ const cors = require('cors');
 require('dotenv').config();
 
 const experienceRoutes = require('./routes/ExperienceRoute');
-const AcheivementRoutes = require('./routes/AcheivementRoute')
+const AcheivementRoutes = require('./routes/AcheivementRoute');
+const Projects=require('./routes/ProjectRoute');
 
 app.use(cors());
 
 app.use(express.json());
 
 app.use('/experience', experienceRoutes);
-
 app.use('/acheivement',AcheivementRoutes);
+app.use('/project',Projects);
 
 
 mongoose.connect(process.env.MONGO_URI)
