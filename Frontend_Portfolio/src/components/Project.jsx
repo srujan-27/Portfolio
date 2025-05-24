@@ -13,7 +13,7 @@ const Project = () => {
   useEffect(() => {
     const FetchProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/project');
+        const response = await axios.get('https://portfolio-production-bc43.up.railway.app/project');
         setProjects(response.data);
       } catch (err) {
         console.error('Error fetching projects:', err);

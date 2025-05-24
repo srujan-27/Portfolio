@@ -10,7 +10,7 @@ const ProjectPage = () => {
   useEffect(() => {
     const fetchAllProjects = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/project');
+        const res = await axios.get('https://portfolio-production-bc43.up.railway.app/project');
         const matchedProject = res.data.find(p => p._id === id);
         setProject(matchedProject);
       } catch (err) {
