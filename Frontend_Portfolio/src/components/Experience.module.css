@@ -1,73 +1,591 @@
-body{
-  background-color: #000000;
-}
+/* ============================================
+   EXPERIENCE COMPONENT - NETFLIX STYLE CSS
+   ============================================
+   This stylesheet includes styles for:
+   1. Continue Watching section
+   2. Top 10 badges
+   3. Season dropdown selector
+   4. Episode hover expand
+   5. My List feature
+   6. Match percentage badges
+*/
 
 .container {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
   padding: 20px;
+  background-color: #141414;
 }
 
-.seasonCard {
-  background-color: #141414;
+/* ============================================
+   FEATURE 1: CONTINUE WATCHING SECTION
+   ============================================
+   Netflix shows this at the very top
+   Red accent + progress bar */
+
+.continueWatching {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  border-radius: 8px;
   padding: 20px;
+  border-left: 4px solid #e50914;
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  color: white;
+  margin: 0 0 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.redDot {
+  width: 8px;
+  height: 8px;
+  background-color: #e50914;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.continueCard {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.continueThumb {
+  width: 140px;
+  height: 80px;
+  background: linear-gradient(135deg, #e50914, #b20710);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.continueThumb:hover {
+  transform: scale(1.05);
+}
+
+.playIcon {
+  font-size: 2rem;
+  color: white;
+}
+
+.continueInfo {
+  flex: 1;
+}
+
+.continueInfo h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.continueInfo p {
+  margin: 5px 0 10px;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Progress Bar - Like Netflix's red progress indicator */
+.progressContainer {
+  width: 100%;
+  height: 4px;
+  background-color: #333;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background-color: #e50914;
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+.progressText {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 5px;
+  display: block;
+}
+
+/* ============================================
+   FEATURE 3: SEASON DROPDOWN SELECTOR
+   ============================================
+   Styled like Netflix's episode selector */
+
+.seasonSelector {
+  position: relative;
+  display: inline-block;
+}
+
+.seasonDropdownBtn {
+  background-color: #242424;
+  color: white;
+  border: 1px solid #555;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 200px;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+.seasonDropdownBtn:hover {
+  background-color: #333;
+  border-color: #777;
+}
+
+.dropdownArrow {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #141414;
+  border: 1px solid #333;
+  border-radius: 4px;
+  min-width: 250px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownItem {
+  padding: 12px 16px;
+  color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #222;
+}
+
+.dropdownItem:last-child {
+  border-bottom: none;
+}
+
+.dropdownItem:hover {
+  background-color: #333;
+  color: white;
+}
+
+.dropdownItem.active {
+  background-color: #e50914;
+  color: white;
+}
+
+/* ============================================
+   SEASON CARDS
+   ============================================ */
+
+.seasonCard {
+  background-color: #1a1a1a;
+  padding: 25px;
   border-radius: 10px;
+  position: relative;
+  overflow: visible;
+}
+
+/* ============================================
+   FEATURE 2: TOP 10 BADGE
+   ============================================
+   Netflix's iconic Top 10 ranking style */
+
+.topBadge {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.topNumber {
+  font-size: 4rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 3px #e50914;
+  line-height: 1;
+  font-style: italic;
+}
+
+.topText {
+  background-color: #e50914;
+  color: white;
+  font-size: 0.6rem;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-top: -10px;
+}
+
+/* ============================================
+   SEASON HEADER WITH MATCH BADGE
+   ============================================ */
+
+.seasonHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-left: 50px; /* Space for Top badge */
 }
 
 .seasonTitle {
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 1.8rem;
+  margin: 0;
+  color: white;
+}
+
+/* FEATURE 8: MATCH PERCENTAGE BADGE */
+.matchBadge {
+  background-color: transparent;
+  color: #46d369;
+  font-weight: bold;
+  font-size: 0.95rem;
+  padding: 4px 0;
 }
 
 .seasonDescription {
   color: #b3b3b3;
   font-size: 1rem;
-  margin-bottom: 20px;
+  margin: 10px 0 15px 50px;
 }
+
+/* Tech Stack Tags */
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 20px 50px;
+}
+
+.techTag {
+  background-color: #333;
+  color: #ddd;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   EPISODES CONTAINER
+   ============================================ */
 
 .episodesContainer {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 }
+
+/* ============================================
+   EPISODE CARDS WITH HOVER EXPAND
+   ============================================ */
 
 .episodeCard {
   display: flex;
+  align-items: flex-start;
   gap: 20px;
   background-color: #222;
   padding: 15px;
   border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.episodeCard:hover,
+.episodeCard.expanded {
+  background-color: #2a2a2a;
+  border-color: #444;
+  transform: scale(1.01);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
 
 .thumbnail {
   width: 100px;
-  height: 60px;
-  background: linear-gradient(45deg, #f00, #f90);
-  border-radius: 5px;
+  min-width: 100px;
+  height: 70px;
+  background: linear-gradient(135deg, #e50914, #b20710);
+  border-radius: 6px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumbnail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+}
+
+.episodeNumber {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+.episodeInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.episodeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .episodeInfo h3 {
   margin: 0;
+  font-size: 1.1rem;
+  color: white;
+  font-weight: 600;
+}
+
+/* ============================================
+   FEATURE 5: MY LIST BUTTON
+   ============================================ */
+
+.myListBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #777;
+  background-color: rgba(42, 42, 42, 0.8);
+  color: white;
   font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.myListBtn:hover {
+  border-color: white;
+  transform: scale(1.1);
+}
+
+.myListBtn.inList {
+  background-color: white;
+  color: #141414;
+  border-color: white;
 }
 
 .episodeInfo p {
-  margin-top: 5px;
-  color: #ccc;
+  margin-top: 8px;
+  margin-bottom: 0;
+  color: #d2d2d2;
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 .episodeMeta {
   display: flex;
-  gap: 10px;
-  font-size: 0.9rem;
-  margin-top: 8px;
-  color: #ccc;
+  gap: 15px;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-top: 12px;
 }
+
+.rating {
+  color: #f5c518;
+  font-weight: 500;
+}
+
+.savedBadge {
+  background-color: #e50914;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ============================================
+   FEATURE 4: EXPANDED CONTENT ON HOVER
+   ============================================ */
+
+.expandedContent {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #333;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.techUsed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.techLabel {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.miniTechTag {
+  background-color: #333;
+  color: #ccc;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+.playEpisode {
+  background-color: white;
+  color: #141414;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.playEpisode:hover {
+  background-color: rgba(255,255,255,0.85);
+  transform: scale(1.02);
+}
+
+/* ============================================
+   MY LIST SECTION
+   ============================================ */
+
+.myListSection {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 8px;
+  padding: 20px;
+  border-left: 4px solid #e50914;
+  margin-top: 20px;
+}
+
+.myListHint {
+  color: #888;
+  font-size: 0.9rem;
+  margin: 10px 0 0;
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
 
 .loading {
   text-align: center;
   font-size: 1.5rem;
   color: white;
   margin-top: 50px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .seasonHeader {
+    margin-left: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .seasonDescription {
+    margin-left: 0;
+  }
+
+  .techTags {
+    margin-left: 0;
+  }
+
+  .topBadge {
+    position: relative;
+    top: 0;
+    left: 0;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+
+  .topNumber {
+    font-size: 2.5rem;
+  }
+
+  .topText {
+    margin-top: 0;
+    margin-left: -5px;
+  }
+
+  .episodeCard {
+    flex-direction: column;
+  }
+
+  .thumbnail {
+    width: 100%;
+    height: 100px;
+  }
+
+  .continueCard {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .continueThumb {
+    width: 100%;
+    height: 120px;
+  }
+
+  .seasonDropdownBtn {
+    width: 100%;
+  }
+
+  .dropdownMenu {
+    width: 100%;
+  }
 }

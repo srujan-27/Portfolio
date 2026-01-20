@@ -11,7 +11,6 @@ function App() {
         <Router>
             {/* NAVBAR OUTSIDE Routes */}
             <Navbar />  
-
             {/* THEN Routes */}
             <Routes>
                 <Route path="/" element={<Home />} />

@@ -1,47 +1,43 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios';
 import styles from './Achievement.module.css';
 
-const Achievement =()=>{
-    const [achievements, setAchievements]=useState([]);
-    const fetchAchievements = async () =>{
-        try{
-            const response= await axios.get('https://portfolio-production-bc43.up.railway.app/acheivement');
-            setAchievements(response.data);
-        }catch(error){
-            console.error("error fetching achivements");
-        }
-    };
+const Achievement = () => {
+  return (
+    <div className={styles.paper}>
+      <h1 className={styles.title}>The Developer Times</h1>
+      <h2 className={styles.subtitle}>Featured Achievements</h2>
 
-    useEffect(()=>{
-        fetchAchievements();
-    },[]);
-
-    if(achievements.length === 0){
-        return <p> Loading Achievements</p>;
-    }
-
-    return (
-        <div className={styles.container}>
-            <h1 className={styles.heading}>
-                My Achievements
-            </h1>
-            {achievements.map((ach) => (
-                <div key={ach._id} className={styles.card}>
-                    <h2 className={styles.title}>{ach.title}</h2>
-                    <p className={styles.description}>{ach.description}</p>
-    
-                    <div className={styles.photos}>
-                        {ach.photos.map((photoUrl, index) => (
-                            <img key={index} src={photoUrl} alt="Achievement" className={styles.photo} />
-                        ))}
-                    </div>
-                </div>
-            ))}
+      <div className={styles.grid}>
+        {/* 🏅 Certifications */}
+        <div className={styles.article}>
+          <h3 className={styles.headline}>Certified in AWS Cloud Architecting</h3>
+          <p className={styles.date}>Issued by AWS, April 2025</p>
+          <p className={styles.body}>
+            Completed the AWS Academy Cloud Architecting course with distinction. Learned EC2, VPCs, RDS, IAM, Auto Scaling, CloudFormation, and more.
+          </p>
         </div>
-    );
-    
 
+        {/* 🧠 Hackathons */}
+        <div className={styles.article}>
+          <h3 className={styles.headline}>Winner – Quinnipiac Ransomware Hackathon</h3>
+          <p className={styles.date}>March 2025</p>
+          <p className={styles.body}>
+            Took the role of CISO and led a winning strategy in the cybersecurity hackathon conducted by Quinnipiac and Hartford HealthCare.
+          </p>
+        </div>
+
+        {/* 🎤 Interview / Feature */}
+        <div className={styles.article}>
+          <h3 className={styles.headline}>Featured on CodeCast with John Carmack</h3>
+          <p className={styles.date}>Interviewed April 2025</p>
+          <p className={styles.body}>
+            Discussed emerging trends in AI + cybersecurity and shared insights from my research into XSS vulnerability detection with LLMs.
+          </p>
+        </div>
+
+        {/* 🛠 Add more articles as needed */}
+      </div>
+    </div>
+  );
 };
 
 export default Achievement;

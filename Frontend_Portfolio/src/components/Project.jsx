@@ -8,12 +8,12 @@ import { useNavigate } from 'react-router-dom';
 const Project = () => {
   const navigate=useNavigate();
   const [projects, setProjects] = useState([]);
-  const [hovered, setHovered] = useState(null); // track which card is hovered
+  const [hovered, setHovered] = useState(null); // tracking which card is hovered
 
   useEffect(() => {
     const FetchProjects = async () => {
       try {
-        const response = await axios.get('https://portfolio-production-bc43.up.railway.app/project');
+        const response = await axios.get(' http://localhost:5000/project');
         setProjects(response.data);
       } catch (err) {
         console.error('Error fetching projects:', err);

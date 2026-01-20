@@ -1,102 +1,241 @@
 .page {
-    color: white;
-    margin-left: 200px;
-    margin-right: 200px;
-    background-color: black;
+  color: white;
+  background-color: #000;
+  min-height: 100vh;
+  padding-top: 60px; /* Account for fixed navbar */
 }
 
 .videoContainer {
-    background-color: black;
-    height: 100vh;
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 .video {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+/* Hero/Poster Section */
 .posterSection {
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    background: linear-gradient(to bottom, darkred, black);
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(to bottom, #8b0000, #1a0000, #000);
+  position: relative;
 }
 
+.posterContent {
+  max-width: 800px;
+  z-index: 1;
+}
 
 .posterContent h1 {
-    font-size: 2.5rem;
-    margin-bottom: 5px;
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
 
 .tagline {
-    display: flex;
-    align-items: flex-start;
-    margin-top: 0px;
-    font-size: 1rem;
-    max-width: 600px;
+  font-size: 1.1rem;
+  color: #e5e5e5;
+  margin: 0 auto;
+  max-width: 500px;
 }
 
-.about{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1rem;
-    margin-top: 10px;  
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: 1rem;
+  margin-top: 15px;
 }
 
-.match{
-    color: rgb(34 197 94 );;
-    /* font-size: 20px; */
-    font-weight: bold;
+.about p {
+  margin: 0;
 }
 
-.buttons{
-    display: flex;
-    align-items: flex-end;
-    gap: 10px;
+.match {
+  color: #46d369;
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+  flex-wrap: wrap;
 }
 
 .watchButton {
-    background-color: rgb(255, 255, 255);
-    color: black;
-    border: none;
-    padding: 10px 30px;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.share{
-    width:15px;
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .watchButton:hover {
-    background-color: rgb(228, 228, 231);
+  background-color: rgba(255, 255, 255, 0.85);
+  transform: scale(1.02);
 }
 
+/* Description Section */
+.second {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 40px;
+  background-color: #141414;
+}
+
+.secondabout {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #d2d2d2;
+  margin-bottom: 20px;
+}
+
+.second p {
+  margin: 8px 0;
+  color: #fff;
+}
+
+.second span {
+  color: #777;
+}
+
+/* Episodes Section */
 .experiencesSection {
-    padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #141414;
 }
 
-.second{
-    margin: 10px;
+.experiencesSection h2 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: white;
+  font-weight: 600;
 }
 
-span{
-    color: rgb(167, 167, 174);
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .page {
+    padding-top: 50px;
+  }
+  
+  .posterContent h1 {
+    font-size: 2.2rem;
+  }
+  
+  .second {
+    padding: 25px 30px;
+  }
 }
 
+/* ============================================
+   FEATURE 1: SKIP INTRO BUTTON
+   ============================================
+   Position: Bottom-right corner of video
+   
+   Why these specific styles?
+   - position: absolute + bottom/right = anchors to corner
+   - z-index: 1001 = appears ABOVE the video (video container is 1000)
+   - animation: fadeIn = smooth appearance after 1.5s delay
+   - border-left: 3px solid white = Netflix's signature skip button style
+*/
+.skipButton {
+  position: absolute;
+  bottom: 80px;
+  right: 50px;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 3px solid white;
+  cursor: pointer;
+  z-index: 1001;
+  transition: all 0.2s ease;
+  animation: fadeIn 0.3s ease;
+}
 
-video {
-    object-fit: cover;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
+.skipButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .skipButton {
+    bottom: 60px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .posterSection {
+    min-height: 400px;
+    padding: 40px 15px;
+  }
+  
+  .posterContent h1 {
+    font-size: 1.8rem;
+  }
+  
+  .tagline {
+    font-size: 1rem;
+  }
+  
+  .about {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .watchButton {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .second {
+    padding: 20px 15px;
+  }
+  
+  .experiencesSection {
+    padding: 30px 15px;
+  }
 }
