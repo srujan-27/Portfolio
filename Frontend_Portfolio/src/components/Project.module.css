@@ -1,50 +1,158 @@
-.body{
- 
-    background-color: azure;
+/* ============================================
+   YOUTUBE-STYLE PROJECTS PAGE
+   ============================================
+   Color scheme: YouTube's dark mode
+   - Background: #0f0f0f
+   - Cards: #272727
+   - Text: #f1f1f1
+   - Accent: #ff0000 (YouTube red)
+*/
+
+.container {
+  min-height: 100vh;
+  background-color: #0f0f0f;
+  padding: 20px 40px;
+  padding-top: 80px; /* Account for navbar */
 }
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.header {
+  margin-bottom: 25px;
+}
+
 .logo {
-  
- 
-  width: 50px;
-  height: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
 }
 
-
-.main{
-    margin: 20px;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 25px;
-    color: aqua;
+.logoIcon {
+  background-color: #ff0000;
+  color: white;
+  width: 36px;
+  height: 26px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
 }
 
-.main h1{
-    color: blue;
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.5px;
 }
 
-.projectItem{
-
-  width: 400px;
-  height: 350px;
+.subtitle {
+  color: #aaa;
+  font-size: 0.95rem;
+  margin: 0;
 }
 
-.projectItem:hover {
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+/* ============================================
+   CATEGORY FILTER TABS
+   ============================================ */
+
+.categoryTabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #555 transparent;
+}
+
+.categoryTabs::-webkit-scrollbar {
+  height: 6px;
+}
+
+.categoryTabs::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 3px;
+}
+
+.categoryTab {
+  background-color: #272727;
+  color: #f1f1f1;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.categoryTab:hover {
+  background-color: #3d3d3d;
+}
+
+.categoryTab.active {
+  background-color: #f1f1f1;
+  color: #0f0f0f;
+}
+
+/* ============================================
+   PROJECTS GRID
+   ============================================ */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* ============================================
+   PROJECT CARD
+   ============================================ */
+
+.card {
+  background-color: transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.card:hover {
   transform: translateY(-5px);
 }
 
-.videoWrapper {
+/* ============================================
+   THUMBNAIL / VIDEO PREVIEW
+   ============================================ */
+
+.thumbnailWrapper {
   position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  border-radius: 12px;
   overflow: hidden;
-  border-radius: 10px;
-  transition: all 0.3s ease;
+  background-color: #1a1a1a;
 }
 
-.videoWrapper iframe {
+.thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .thumbnail {
+  transform: scale(1.05);
+}
+
+.videoPreview {
   position: absolute;
   top: 0;
   left: 0;
@@ -53,6 +161,241 @@
   border: none;
 }
 
-.projectItem:hover {
-  transform: scale(1.02);
+/* Duration Badge */
+.duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Like Button */
+.likeBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.card:hover .likeBtn {
+  opacity: 1;
+}
+
+.likeBtn:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+.likeBtn.liked {
+  opacity: 1;
+}
+
+/* ============================================
+   VIDEO INFO
+   ============================================ */
+
+.info {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.details {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f1f1f1;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.channel {
+  margin: 4px 0 2px;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.channel:hover {
+  color: #f1f1f1;
+}
+
+.meta {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* Tech Stack Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.tag {
+  background-color: #272727;
+  color: #aaa;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+/* ============================================
+   QUICK ACTIONS (Demo/Code buttons)
+   ============================================ */
+
+.quickActions {
+  display: flex;
+  gap: 10px;
+  padding: 0 0 10px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+}
+
+.card:hover .quickActions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.actionBtn {
+  background-color: #272727;
+  color: #f1f1f1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.actionBtn:hover {
+  background-color: #3d3d3d;
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #aaa;
+}
+
+.empty p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.empty button {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.empty button:hover {
+  background-color: #cc0000;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+    padding-top: 70px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .categoryTabs {
+    gap: 8px;
+  }
+
+  .categoryTab {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .quickActions {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .likeBtn {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    text-align: center;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .avatar {
+    display: none;
+  }
 }
