@@ -1,24 +1,10 @@
 /* ============================================
    NEWSPAPER-STYLE ACHIEVEMENTS PAGE
-   ============================================
-   Inspired by The New York Times layout
-   - Serif fonts for headlines
-   - Column-based layout
-   - Vintage paper texture
-   - Black & white with accent colors
-*/
-
-/* ============================================
-   PAGE CONTAINER & PRINT ANIMATION
    ============================================ */
 
 .newspaper {
   min-height: 100vh;
   background-color: #f4f1ea;
-  background-image: 
-    linear-gradient(90deg, transparent 79px, #e0dcd3 79px, #e0dcd3 81px, transparent 81px),
-    linear-gradient(#e0dcd3 1px, transparent 1px);
-  background-size: 100% 25px;
   padding: 80px 20px 40px;
   opacity: 0;
   transform: translateY(20px);
@@ -29,24 +15,6 @@
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Paper texture overlay */
-.newspaper::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ============================================
-   BREAKING NEWS TICKER
-   ============================================ */
 
 .ticker {
   position: fixed;
@@ -90,10 +58,6 @@
   100% { transform: translateX(-100%); }
 }
 
-/* ============================================
-   MASTHEAD (Newspaper Header)
-   ============================================ */
-
 .masthead {
   text-align: center;
   padding: 30px 20px;
@@ -109,12 +73,12 @@
   margin: 0 auto 15px;
   font-size: 0.8rem;
   color: #666;
-  font-family: 'Georgia', serif;
+  font-family: Georgia, serif;
   font-style: italic;
 }
 
 .paperName {
-  font-family: 'Times New Roman', 'Georgia', serif;
+  font-family: Times New Roman, Georgia, serif;
   font-size: 4rem;
   font-weight: 700;
   color: #1a1a1a;
@@ -125,7 +89,7 @@
 }
 
 .tagline {
-  font-family: 'Georgia', serif;
+  font-family: Georgia, serif;
   font-style: italic;
   font-size: 1rem;
   color: #555;
@@ -138,10 +102,6 @@
   margin: 20px auto;
   max-width: 900px;
 }
-
-/* ============================================
-   CATEGORY NAVIGATION
-   ============================================ */
 
 .categoryNav {
   display: flex;
@@ -160,7 +120,7 @@
 .categoryBtn {
   background: none;
   border: none;
-  font-family: 'Georgia', serif;
+  font-family: Georgia, serif;
   font-size: 0.95rem;
   color: #444;
   cursor: pointer;
@@ -189,20 +149,12 @@
   background-color: #cc0000;
 }
 
-/* ============================================
-   MAIN CONTENT
-   ============================================ */
-
 .content {
   max-width: 1100px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
-
-/* ============================================
-   FEATURED ARTICLE (Lead Story with Photo)
-   ============================================ */
 
 .featured {
   display: grid;
@@ -254,7 +206,7 @@
 }
 
 .featuredHeadline {
-  font-family: 'Times New Roman', 'Georgia', serif;
+  font-family: Times New Roman, Georgia, serif;
   font-size: 2rem;
   font-weight: 700;
   color: #1a1a1a;
@@ -263,7 +215,7 @@
 }
 
 .featuredSubheadline {
-  font-family: 'Georgia', serif;
+  font-family: Georgia, serif;
   font-style: italic;
   font-size: 1.1rem;
   color: #555;
@@ -271,7 +223,7 @@
 }
 
 .articleText {
-  font-family: 'Georgia', serif;
+  font-family: Georgia, serif;
   font-size: 1rem;
   line-height: 1.8;
   color: #333;
@@ -298,10 +250,6 @@
   font-style: italic;
 }
 
-/* ============================================
-   SKILLS TAGS
-   ============================================ */
-
 .skillsContainer {
   display: flex;
   flex-wrap: wrap;
@@ -315,12 +263,7 @@
   padding: 4px 10px;
   border-radius: 3px;
   font-size: 0.8rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
-
-/* ============================================
-   CREDENTIAL BUTTON
-   ============================================ */
 
 .credentialBtn {
   display: inline-block;
@@ -329,7 +272,6 @@
   padding: 10px 20px;
   border-radius: 4px;
   font-size: 0.9rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   text-decoration: none;
   margin: 15px 0;
   transition: all 0.2s ease;
@@ -340,10 +282,6 @@
   background-color: #333;
   transform: translateY(-2px);
 }
-
-/* ============================================
-   SECTION HEADER
-   ============================================ */
 
 .sectionHeader {
   text-align: center;
@@ -372,16 +310,12 @@
 .sectionHeader span {
   background-color: #f4f1ea;
   padding: 0 20px;
-  font-family: 'Georgia', serif;
+  font-family: Georgia, serif;
   font-size: 0.9rem;
   color: #666;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-
-/* ============================================
-   ARTICLES GRID
-   ============================================ */
 
 .articlesGrid {
   display: grid;
@@ -427,7 +361,7 @@
 }
 
 .articleHeadline {
-  font-family: 'Times New Roman', 'Georgia', serif;
+  font-family: Times New Roman, Georgia, serif;
   font-size: 1.3rem;
   font-weight: 700;
   color: #1a1a1a;
@@ -436,7 +370,7 @@
 }
 
 .articleSubheadline {
-  font-family: 'Georgia', serif;
+  font-family: Georgia, serif;
   font-style: italic;
   font-size: 0.9rem;
   color: #666;
@@ -444,7 +378,7 @@
 }
 
 .articleBody {
-  font-family: 'Georgia', serif;
+  font-family: Georgia, serif;
   font-size: 0.9rem;
   line-height: 1.7;
   color: #444;
@@ -461,10 +395,6 @@
   font-size: 0.8rem;
 }
 
-/* ============================================
-   EMPTY STATE
-   ============================================ */
-
 .empty {
   text-align: center;
   padding: 60px 20px;
@@ -473,7 +403,7 @@
 }
 
 .empty p {
-  font-family: 'Georgia', serif;
+  font-family: Georgia, serif;
   font-size: 1.1rem;
   color: #666;
   margin-bottom: 20px;
@@ -484,7 +414,7 @@
   color: white;
   border: none;
   padding: 12px 30px;
-  font-family: 'Georgia', serif;
+  font-family: Georgia, serif;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -493,10 +423,6 @@
 .empty button:hover {
   background-color: #333;
 }
-
-/* ============================================
-   FOOTER
-   ============================================ */
 
 .footer {
   text-align: center;
@@ -516,7 +442,7 @@
 }
 
 .footer p {
-  font-family: 'Georgia', serif;
+  font-family: Georgia, serif;
   color: #666;
   margin: 5px 0;
   font-size: 0.9rem;
@@ -526,10 +452,6 @@
   font-style: italic;
   color: #888;
 }
-
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
 
 @media (max-width: 900px) {
   .featured {
@@ -611,10 +533,6 @@
   }
 }
 
-/* ============================================
-   PRINT STYLES
-   ============================================ */
-
 @media print {
   .ticker {
     display: none;
@@ -623,10 +541,6 @@
   .newspaper {
     background: white;
     padding: 0;
-  }
-
-  .newspaper::before {
-    display: none;
   }
 
   .article {
