@@ -43,7 +43,7 @@ const Project = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/project');
+        const response = await axios.get('https://portfolio-bfaj.onrender.com/project');
         setProjects(response.data);
       } catch (err) {
         console.error('Error fetching projects:', err);

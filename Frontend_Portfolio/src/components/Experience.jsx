@@ -77,7 +77,7 @@ const Experience = () => {
   // ============================================
   const fetchExperiences = async () => {
     try {
-      const response = await axios.get('https://portfolio-production-bc43.up.railway.app/experience');
+      const response = await axios.get('https://portfolio-bfaj.onrender.com/experience');
       setExperiences(response.data);
     } catch (error) {
       console.error('Error fetching experiences:', error);
