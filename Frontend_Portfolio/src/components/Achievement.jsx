@@ -12,7 +12,7 @@
 
 import { useState, useEffect } from 'react';
 import styles from './Achievement.module.css';
-import hackathonPhoto from '../assests/hackathon_win.jpg'; // Add your photo to assets folder
+import hackathonPhoto from '../assests/hackathon_win.jpg'; // 
 
 const Achievement = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -27,7 +27,7 @@ const Achievement = () => {
   }, []);
 
   // ============================================
-  // YOUR ACHIEVEMENTS DATA
+  // ACHIEVEMENTS DATA (matched to resume)
   // ============================================
   const achievements = [
     {
@@ -37,7 +37,7 @@ const Achievement = () => {
       subheadline: 'Led Team to Victory at Quinnipiac Ransomware Challenge',
       date: 'March 2025',
       source: 'Quinnipiac University & Hartford HealthCare',
-      content: 'Won first place in the cybersecurity hackathon by developing and presenting a comprehensive ransomware defense strategy. Collaborated with team members to analyze threats, design incident response protocols, and present solutions to industry judges.',
+      content: 'Won first place in the cybersecurity hackathon by developing and presenting a comprehensive ransomware defense strategy. Took on the role of CISO, analyzed threats, designed incident response protocols, and presented solutions to industry judges.',
       featured: true,
       icon: '',
       image: hackathonPhoto,
@@ -47,56 +47,85 @@ const Achievement = () => {
     {
       id: 2,
       category: 'Certification',
-      headline: 'Foundations of Modern Liferay Application Design',
-      subheadline: 'Enterprise Portal Development Expertise',
-      date: 'September 2025',
-      source: 'Liferay',
-      content: 'Completed certification in Liferay platform, demonstrating proficiency in modern enterprise application design, portal development, and digital experience platforms.',
+      headline: 'Google Cloud Professional Machine Learning Engineer',
+      subheadline: 'Production ML Systems on Google Cloud',
+      date: '2025',
+      source: 'Google Cloud',
+      content: 'Earned the Google Cloud Professional ML Engineer certification, validating expertise in designing, building, and productionizing machine learning models on GCP, including Vertex AI, ML pipelines, and responsible AI practices.',
       featured: false,
       icon: '',
       image: null,
       link: 'https://www.linkedin.com/in/sai-srujan-2002/details/certifications/',
-      linkText: 'View on LinkedIn',
-      skills: ['Liferay']
+      linkText: 'View Credential',
+      skills: ['GCP', 'Vertex AI', 'MLOps']
     },
     {
       id: 3,
       category: 'Certification',
-      headline: 'GitHub Foundations',
-      subheadline: 'Version Control & Collaboration Mastery',
-      date: 'June 2025',
-      source: 'GitHub',
-      content: 'Earned GitHub Foundations certification validating expertise in Git version control, repository management, collaboration workflows, pull requests, and GitHub features.',
+      headline: 'IBM AI Engineering Professional Certificate',
+      subheadline: 'Deep Learning & AI Engineering Mastery',
+      date: '2025',
+      source: 'IBM / Coursera',
+      content: 'Completed the IBM AI Engineering Professional Certificate, covering machine learning, deep learning with Keras, PyTorch, and TensorFlow, computer vision, and deploying AI models at scale.',
       featured: false,
       icon: '',
       image: null,
-      link: 'https://www.credly.com/badges/dabd5fa1-b096-4dc1-99cf-ff1fde245fcf/public_url',
+      link: 'https://www.linkedin.com/in/sai-srujan-2002/details/certifications/',
       linkText: 'View Credential',
-      skills: ['GitHub', 'Git']
+      skills: ['PyTorch', 'TensorFlow', 'Keras', 'Deep Learning']
     },
     {
       id: 4,
       category: 'Certification',
-      headline: 'Node.js Certified Developer',
-      subheadline: 'Backend JavaScript Proficiency Verified',
-      date: 'June 2025',
-      source: 'TestDome',
-      content: 'Passed the TestDome Node.js assessment demonstrating strong skills in server-side JavaScript, asynchronous programming, Express.js, and building scalable backend applications.',
+      headline: 'Deep Learning Specialization',
+      subheadline: 'Neural Networks from Foundations to Production',
+      date: '2024',
+      source: 'DeepLearning.AI / Coursera',
+      content: 'Completed the renowned Deep Learning Specialization by Andrew Ng, mastering neural networks, hyperparameter tuning, CNNs, sequence models, and strategies for structuring machine learning projects.',
       featured: false,
       icon: '',
       image: null,
-      link: 'https://www.testdome.com/certificates/189adca5d5ab41f2a3994c4ac44e9050',
-      linkText: 'View Certificate',
-      skills: ['Node.js']
+      link: 'https://www.linkedin.com/in/sai-srujan-2002/details/certifications/',
+      linkText: 'View Credential',
+      skills: ['Neural Networks', 'CNNs', 'Sequence Models']
     },
     {
       id: 5,
+      category: 'Certification',
+      headline: 'AWS Certified Cloud Practitioner',
+      subheadline: 'Cloud Fundamentals Verified by Amazon',
+      date: '2024',
+      source: 'Amazon Web Services',
+      content: 'Earned the AWS Certified Cloud Practitioner credential, demonstrating foundational knowledge of AWS services, cloud architecture, security, pricing, and best practices across the AWS ecosystem.',
+      featured: false,
+      icon: '',
+      image: null,
+      link: 'https://www.linkedin.com/in/sai-srujan-2002/details/certifications/',
+      linkText: 'View Credential',
+      skills: ['AWS', 'Cloud Computing']
+    },
+    {
+      id: 6,
+      category: 'Education',
+      headline: 'Master of Science in Computer Science',
+      subheadline: 'Graduate Studies Completed at Quinnipiac University',
+      date: 'December 2025',
+      source: 'Quinnipiac University, Hamden, CT',
+      content: 'Completed a Master of Science in Computer Science, building advanced expertise in algorithms, machine learning, software engineering, and applied research.',
+      featured: false,
+      icon: '',
+      image: null,
+      link: null,
+      skills: ['Computer Science', 'Machine Learning', 'Research']
+    },
+    {
+      id: 7,
       category: 'Writing',
       headline: 'Technical Writer on Medium',
       subheadline: 'Sharing Knowledge Through Articles',
       date: 'Ongoing',
       source: 'Medium',
-      content: 'Actively writing technical articles covering software development, programming tutorials, and technology insights. Sharing knowledge and experiences with the developer community.',
+      content: 'Actively writing technical articles covering AI/ML, software development, programming tutorials, and technology insights. Sharing knowledge and experiences with the developer community.',
       featured: false,
       icon: '',
       image: null,
@@ -110,7 +139,7 @@ const Achievement = () => {
   // FILTERING
   // ============================================
   const categories = ['All', ...new Set(achievements.map(a => a.category))];
-  
+
   const filteredAchievements = selectedCategory === 'All'
     ? achievements
     : achievements.filter(a => a.category === selectedCategory);
@@ -129,16 +158,18 @@ const Achievement = () => {
   // ============================================
   return (
     <div className={`${styles.newspaper} ${isLoaded ? styles.loaded : ''}`}>
-      
+
       {/* Breaking News Ticker */}
       <div className={styles.ticker}>
         <span className={styles.tickerLabel}>BREAKING</span>
         <div className={styles.tickerContent}>
           <p>
-             HACKATHON VICTORY: Sai Srujan's Team Wins Cybersecurity Challenge — 
-             GitHub Foundations Certified — 
-             Node.js Skills Verified by TestDome — 
-             Liferay Application Design Certified — 
+             HACKATHON VICTORY: Sai Srujan's Team Wins Cybersecurity Challenge —
+             Google Cloud Professional ML Engineer Certified —
+             IBM AI Engineering Professional Certificate Earned —
+             Deep Learning Specialization Completed —
+             AWS Certified Cloud Practitioner —
+             MS in Computer Science, Quinnipiac University —
              New Articles Published on Medium —
           </p>
         </div>
@@ -171,14 +202,14 @@ const Achievement = () => {
 
       {/* Main Content */}
       <main className={styles.content}>
-        
+
         {/* Featured Article - Hackathon Win */}
-        {selectedCategory === 'All' && featuredAchievement && (
+        {(selectedCategory === 'All' || selectedCategory === featuredAchievement?.category) && (
           <article className={styles.featured}>
             <div className={styles.featuredImage}>
               {featuredAchievement.image ? (
-                <img 
-                  src={featuredAchievement.image} 
+                <img
+                  src={featuredAchievement.image}
                   alt={featuredAchievement.headline}
                   className={styles.featuredPhoto}
                 />
@@ -191,7 +222,7 @@ const Achievement = () => {
               <h2 className={styles.featuredHeadline}>{featuredAchievement.headline}</h2>
               <p className={styles.featuredSubheadline}>{featuredAchievement.subheadline}</p>
               <p className={styles.articleText}>{featuredAchievement.content}</p>
-              
+
               {/* Skills Tags */}
               {featuredAchievement.skills && (
                 <div className={styles.skillsContainer}>
@@ -200,7 +231,7 @@ const Achievement = () => {
                   ))}
                 </div>
               )}
-              
+
               <div className={styles.articleMeta}>
                 <span className={styles.source}>{featuredAchievement.source}</span>
                 <span className={styles.date}>{featuredAchievement.date}</span>
@@ -225,7 +256,7 @@ const Achievement = () => {
               <h3 className={styles.articleHeadline}>{achievement.headline}</h3>
               <p className={styles.articleSubheadline}>{achievement.subheadline}</p>
               <p className={styles.articleBody}>{achievement.content}</p>
-              
+
               {/* Skills Tags */}
               {achievement.skills && (
                 <div className={styles.skillsContainer}>
@@ -235,15 +266,15 @@ const Achievement = () => {
                 </div>
               )}
 
-              {/* Credential Link Button */}
+           {/* Credential Link Button */}
               {achievement.link && (
-                <a 
-                  href={achievement.link} 
-                  target="_blank" 
+                <a
+                  href={achievement.link}
+                  target="_blank"
                   rel="noreferrer"
                   className={styles.credentialBtn}
                 >
-                  {achievement.linkText || 'View Credential'} ↗
+                  {achievement.linkText || 'View Credential'} 
                 </a>
               )}
 
