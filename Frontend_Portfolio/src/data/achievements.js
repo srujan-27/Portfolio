@@ -76,7 +76,7 @@ export const achievements = [
     featured: false,
     detail: null,
     tags: ['AWS', 'SageMaker'],
-    link: null, // TODO: credential URL
+    link: null, 
   },
 
   {
@@ -88,7 +88,7 @@ export const achievements = [
     featured: false,
     detail: null,
     tags: ['Databricks', 'MLflow'],
-    link: null, // TODO: credential URL
+    link: null, 
   },
 
   {
@@ -100,7 +100,19 @@ export const achievements = [
     featured: false,
     detail: null,
     tags: ['Generative AI', 'RAG'],
-    link: null, // TODO: credential URL
+    link: null, 
+  },
+
+  {
+    id: 'azure-ai-engineer',
+    category: 'Certification',
+    title: 'Microsoft Certified: Azure AI Engineer Associate (AI-102)',
+    context: 'Microsoft',
+    date: null,
+    featured: false,
+    detail: null,
+    tags: ['Azure', 'AI'],
+    link: null, 
   },
 
   {
@@ -112,7 +124,7 @@ export const achievements = [
     featured: false,
     detail: null,
     tags: ['Git', 'Actions'],
-    link: null, // TODO: credential URL
+    link: null, 
   },
 
   {
